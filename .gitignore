@@ -3,5 +3,4 @@ Library
 UserSettings
 Logs
 .vs
-Assembly-CSharp.csproj
-Assembly-CSharp-Editor.csproj
+*.csproj
