@@ -424,7 +424,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.24
+  m_Radius: 0.2
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0.47, z: 0}
@@ -450,8 +450,6 @@ MonoBehaviour:
   large_zombie: 1
   damage_range: 2
   damage_ray_origin: {fileID: 282016732012401342}
-  m_moveSpeed: 2
-  m_turnSpeed: 200
   m_animator: {fileID: 7784176679131446820}
 --- !u!195 &7784176679131446817
 NavMeshAgent:
@@ -951,8 +949,8 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a8082d046318c0a4bb0162606364b597, type: 2}
-  - {fileID: 2100000, guid: a8082d046318c0a4bb0162606364b597, type: 2}
+  - {fileID: 2100000, guid: 58643fd15dd31cf439c2852e5e89509f, type: 2}
+  - {fileID: 2100000, guid: 99c3aed26a717384a80f9faea42127db, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

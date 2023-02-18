@@ -306,8 +306,8 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a8082d046318c0a4bb0162606364b597, type: 2}
-  - {fileID: 2100000, guid: a8082d046318c0a4bb0162606364b597, type: 2}
+  - {fileID: 2100000, guid: 948c4007c2efe094c914859874befeab, type: 2}
+  - {fileID: 2100000, guid: e2069c1e25ddbfc46b8aa117aa5638ab, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -724,8 +724,6 @@ MonoBehaviour:
   large_zombie: 0
   damage_range: 0.8
   damage_ray_origin: {fileID: 1008129097038636974}
-  m_moveSpeed: 2
-  m_turnSpeed: 200
   m_animator: {fileID: 7066860132254845748}
 --- !u!195 &7066860132254845745
 NavMeshAgent:

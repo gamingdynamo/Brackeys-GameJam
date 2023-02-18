@@ -10,8 +10,8 @@ using Unity.VisualScripting;
 public class WaveSpawner : MonoBehaviour
 {
     [Header("SpawnSettings")]
-    public int maxspawndistance = 70;
-    public int minspawndistance = 50;
+    public int maxspawndistance = 40;
+    public int minspawndistance = 20;
 
     private GameObject tower;
     private GameObject player;
@@ -45,12 +45,6 @@ public class WaveSpawner : MonoBehaviour
         // start preperation
         wavecountdown = 10;
         nextroundstarting = true;
-        // get the spawnpos
-        foreach (Transform pos in spawnpos_parent.GetComponentsInChildren<Transform>())
-        {
-            //spawnpositions.Append(pos.transform);
-            //Debug.Log(pos.gameObject.transform);
-        }
     }
 
     void Update()

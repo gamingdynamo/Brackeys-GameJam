@@ -32,10 +32,11 @@ public class PlayerMovement : MonoBehaviour
 
         moveDirection = (forward * curSpeedX) + (right * curSpeedY);
 
+        moveDirection.y -= gravity ;
         // Gravity
         if (!characterController.isGrounded)
         {
-            moveDirection.y -= gravity * Time.deltaTime;
+            
         }
 
         // Move the controller
