@@ -6,12 +6,10 @@ using UnityEngine;
 public class Turret : MonoBehaviour
 {
     public GameObject head;
-    public GameObject barrel;
     public GameObject barrel_end;
 
     public GameObject projectile;
 
-    public List<GameObject> zombies_in_range;
     public GameObject current_target;
 
     public float shot_interval;
@@ -25,21 +23,20 @@ public class Turret : MonoBehaviour
         // set new target if old target dissapeared
         if (current_target == null)
         {
-            if (zombies_in_range.Count() > 0)
+            foreach (GameObject zomb in GameObject.FindGameObjectsWithTag("zombie"))
             {
-                current_target = zombies_in_range[0];
-            }
-            else
-            {
-                foreach(GameObject zomb in GameObject.FindGameObjectsWithTag("zombie"))
+                try
                 {
+                    GameObject zombie_target_point = zomb.transform.Find("AttackHeight").gameObject;
+
                     float dist = Vector3.Distance(gameObject.transform.position, zomb.transform.position);
-                    if(dist < range)
+                    if (dist < range)
                     {
-                        current_target = zomb; 
+                        current_target = zombie_target_point;
                         break;
                     }
                 }
+                catch { }
             }
         }
         else
@@ -55,25 +52,6 @@ public class Turret : MonoBehaviour
                 project.GetComponent<Rigidbody>().AddForce(head.transform.forward * 1000f);
                 next_shot_time = Time.time + shot_interval;
             }
-        }
-    }
-
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "zombie")
-        {
-            zombies_in_range.Append(other.gameObject);
-        }
-        Debug.Log(other);
-    }
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.tag == "zombie")
-        {
-            if (current_target == other.gameObject) { current_target= null; }
-
-            zombies_in_range.Remove(other.gameObject);
         }
     }
 }
