@@ -720,6 +720,12 @@ MonoBehaviour:
   player: {fileID: 0}
   footsteps: {fileID: 399770828}
   zombiesfx: {fileID: 399770827}
+  zombiesfxclips:
+  - {fileID: 8300000, guid: 34dbabadfaaac0443a991faa20c61dc9, type: 3}
+  - {fileID: 8300000, guid: 239698833178e594d9583a5c92615b0d, type: 3}
+  - {fileID: 8300000, guid: a3c0ee631fb8f5b489883586e3c90d74, type: 3}
+  - {fileID: 8300000, guid: ca661a029fde04447ac2ecd1887959a7, type: 3}
+  - {fileID: 8300000, guid: f57758f50877985478d757e1478cb382, type: 3}
   hp: 40
   maxhp: 40
   damage: 4
@@ -776,7 +782,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 7417919283036497307, guid: 32d16b98d50b87e41b7c9d4f1dc01969,
     type: 2}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
