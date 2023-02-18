@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public float walkingSpeed = 7.5f;
     public float runningSpeed = 10.0f;
+    public float gravity = 20.0f;
 
     CharacterController characterController;
     Vector3 moveDirection = Vector3.zero;
@@ -30,6 +31,12 @@ public class PlayerMovement : MonoBehaviour
         float curSpeedY = (isRunning ? runningSpeed : walkingSpeed) * Input.GetAxis("Horizontal");
 
         moveDirection = (forward * curSpeedX) + (right * curSpeedY);
+
+        // Gravity
+        if (!characterController.isGrounded)
+        {
+            moveDirection.y -= gravity * Time.deltaTime;
+        }
 
         // Move the controller
         characterController.Move(moveDirection * Time.deltaTime);

@@ -16,6 +16,7 @@ public class PlayerWeapon : MonoBehaviour
     public float shots_interval;
     void Start()
     {
+        // ADD PLAYER POWERUPS LIKE A GRENADE HE CAN THROW TO DAMAGE GROUPS
 
     }
 

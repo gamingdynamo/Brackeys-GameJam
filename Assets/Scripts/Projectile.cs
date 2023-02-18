@@ -10,7 +10,7 @@ public class Projectile : MonoBehaviour
         {
             collision.gameObject.GetComponent<IDamageable>().damage(damage, friendly_projectile);
         } 
-        catch (System.Exception e) {  } // projectile didn't hit a damagable
+        catch{ } // projectile didn't hit a damagable
         
         Destroy(gameObject);
     }

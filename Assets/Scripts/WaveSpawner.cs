@@ -10,6 +10,7 @@ using Unity.VisualScripting;
 public class WaveSpawner : MonoBehaviour
 {
     private GameObject tower;
+    private GameObject player;
     // should become a resource load instead of placing in array
     public GameObject[] zombies_prefabs;
 
@@ -35,6 +36,7 @@ public class WaveSpawner : MonoBehaviour
     void Start()
     {
         tower = GameObject.FindGameObjectWithTag("tower");
+        player = GameObject.FindGameObjectWithTag("Player");
 
         // start preperation
         wavecountdown = 10;
@@ -85,14 +87,16 @@ public class WaveSpawner : MonoBehaviour
             // add some kind of delay between spawn?
             Transform spawnpos = spawnpositions[Random.Range(0, spawnpositions.Count())];
             GameObject zombie = Instantiate(zombies_prefabs[Random.Range(0, zombies_prefabs.Count())], spawnpos);
+            WalkingZombie settings = zombie.GetComponent<WalkingZombie>();
 
             // set wave based specs
-            zombie.GetComponent<Zombie>().damage = Mathf.RoundToInt(zombie.GetComponent<Zombie>().damage * zombie_damage_mp);
+            settings.damage = Mathf.RoundToInt(settings.damage * zombie_damage_mp);
 
-            zombie.GetComponent<Zombie>().hp = Mathf.RoundToInt(zombie.GetComponent<Zombie>().hp * zombie_health_mp);
-            zombie.GetComponent<Zombie>().maxhp = Mathf.RoundToInt(zombie.GetComponent<Zombie>().maxhp * zombie_health_mp);
+            settings.hp = Mathf.RoundToInt(settings.hp * zombie_health_mp);
+            settings.maxhp = Mathf.RoundToInt(settings.maxhp * zombie_health_mp);
 
-            zombie.GetComponent<Zombie>().tower = tower;
+            settings.tower = tower;
+            settings.player = player;
             //zombie.transform.position = spawnpos.position;
         }
         spawncount = Mathf.RoundToInt(spawncount * zombie_count_mp);
