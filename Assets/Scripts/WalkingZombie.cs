@@ -80,7 +80,7 @@ public class WalkingZombie : MonoBehaviour, IDamageable
     void FixedUpdate()
     {
         // If moving set walking anim
-        if (isdead) { Ismoving = false; return; }
+        if (isdead) { Ismoving = false;  return; }
         float velocity = agent.velocity.magnitude / agent.speed;
         m_animator.SetFloat("MoveSpeed", velocity);
 
@@ -156,12 +156,13 @@ public class WalkingZombie : MonoBehaviour, IDamageable
 
     IEnumerator PlayZombieSounds()
     {
+        yield return new WaitForSeconds(Random.Range(1, 3));
         AudioClip toplay = zombiesfxclips[Random.Range(0,zombiesfxclips.Count)];
         zombiesfx.clip = toplay;
         zombiesfx.Play();
 
         // delay between sounds
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(Random.Range(7,9));
         StartCoroutine(PlayZombieSounds());
     }
     IEnumerator despawndelay()
