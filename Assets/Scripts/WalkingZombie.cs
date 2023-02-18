@@ -73,7 +73,7 @@ public class WalkingZombie : MonoBehaviour, IDamageable
         }
         
         target = tower;
-
+        StartCoroutine(PlayZombieSounds());
         if (!m_animator) { gameObject.GetComponent<Animator>(); }
     }
 
