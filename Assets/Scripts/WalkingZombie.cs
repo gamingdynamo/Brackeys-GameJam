@@ -11,6 +11,10 @@ public class WalkingZombie : MonoBehaviour, IDamageable
     private GameObject target;
     private NavMeshAgent agent;
 
+    [Header("Sounds")]
+    public AudioSource footsteps;
+    public AudioSource zombiesfx;
+
     public int hp;
     public int maxhp;
 
@@ -29,6 +33,29 @@ public class WalkingZombie : MonoBehaviour, IDamageable
     [SerializeField] private Animator m_animator = null;
 
     private bool isdead;
+
+    private bool ismoving;
+
+    public bool Ismoving
+    {
+        get { return ismoving; }
+        set
+        {
+            if (value == ismoving) { return; }
+            else
+            {
+                ismoving = value;
+                if (ismoving)
+                {
+                    footsteps.Play();
+                }
+                else
+                {
+                    footsteps.Stop();
+                }
+            }
+        }
+    }
 
     void Start()
     {
@@ -52,9 +79,11 @@ public class WalkingZombie : MonoBehaviour, IDamageable
     void FixedUpdate()
     {
         // If moving set walking anim
-        if (isdead) { return; }
+        if (isdead) { Ismoving = false; return; }
         float velocity = agent.velocity.magnitude / agent.speed;
         m_animator.SetFloat("MoveSpeed", velocity);
+
+        if(velocity > 0.05f) { Ismoving = true ; } else { Ismoving = false; }
 
         // if small zombie we need to constanly get the latest position of the player
         if (small_zombie)

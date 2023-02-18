@@ -3,5 +3,6 @@ Library
 UserSettings
 Logs
 .vs
+.plastic
 *.csproj
 *.sln
