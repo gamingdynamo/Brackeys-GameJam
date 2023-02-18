@@ -9,6 +9,10 @@ using Unity.VisualScripting;
 
 public class WaveSpawner : MonoBehaviour
 {
+    [Header("SpawnSettings")]
+    public int maxspawndistance = 70;
+    public int minspawndistance = 50;
+
     private GameObject tower;
     private GameObject player;
     // should become a resource load instead of placing in array
@@ -80,26 +84,47 @@ public class WaveSpawner : MonoBehaviour
         wave += 1;
         wavefield.text = "Wave: " + wave.ToString();
 
+        int alreadyspawnedcount = 0;
+
         // spawn zombies
-        for (int i = 0;i < spawncount; i++) 
+        while (alreadyspawnedcount < spawncount) 
         {
-            // get one of the random spawn positions
-            // add some kind of delay between spawn?
-            Transform spawnpos = spawnpositions[Random.Range(0, spawnpositions.Count())];
-            GameObject zombie = Instantiate(zombies_prefabs[Random.Range(0, zombies_prefabs.Count())], spawnpos);
-            WalkingZombie settings = zombie.GetComponent<WalkingZombie>();
+            Vector3 spawnPosVect = new Vector3(Random.Range(-maxspawndistance, maxspawndistance), 10f, Random.Range(-maxspawndistance, maxspawndistance));
 
-            // set wave based specs
-            settings.damage = Mathf.RoundToInt(settings.damage * zombie_damage_mp);
+            // check if the position is not to close to the tower
+            if (Vector3.Distance(spawnPosVect, tower.transform.position) > minspawndistance)
+            {
+                // raycast to get the spawn height and if its a valid ground
+                if (Physics.Raycast(spawnPosVect, Vector3.down, out RaycastHit hit))
+                {
+                    if (hit.collider.gameObject.tag == "ground")
+                    {
+                        // Now we know this is a save place to spawn the zombie
+                        Vector3 actualspawnpos = new Vector3(spawnPosVect.x, hit.point.y + 0.5f, spawnPosVect.z);
 
-            settings.hp = Mathf.RoundToInt(settings.hp * zombie_health_mp);
-            settings.maxhp = Mathf.RoundToInt(settings.maxhp * zombie_health_mp);
+                        GameObject zombie = Instantiate(zombies_prefabs[Random.Range(0, zombies_prefabs.Count())], actualspawnpos, transform.rotation);
 
-            settings.tower = tower;
-            settings.player = player;
-            //zombie.transform.position = spawnpos.position;
+                        WalkingZombie settings = zombie.GetComponent<WalkingZombie>();
+
+
+                        // set wave based specs
+                        settings.damage = Mathf.RoundToInt(settings.damage * zombie_damage_mp);
+
+                        settings.hp = Mathf.RoundToInt(settings.hp * zombie_health_mp);
+                        settings.maxhp = Mathf.RoundToInt(settings.maxhp * zombie_health_mp);
+
+                        settings.tower = tower;
+                        settings.player = player;
+
+                        // we succesfully spawned an zombie
+                        alreadyspawnedcount++;
+                    }
+                }
+            }
         }
         spawncount = Mathf.RoundToInt(spawncount * zombie_count_mp);
+        zombie_health_mp = zombie_health_mp * zombie_health_mp;
+        zombie_damage_mp = zombie_damage_mp * zombie_health_mp;
 
         Debug.Log("Wave: "+ wave.ToString() + " STARTED");
     }

@@ -6,7 +6,7 @@ using TMPro;
 using UnityEngine.UI;
 using UnityEngine.XR;
 
-public class Tower : MonoBehaviour, IDamageable, IInteractable
+public class Tower : MonoBehaviour, IDamageable, IInteractable, IUpgradeable
 {
     public float hp;
     public int maxhp;
@@ -68,5 +68,25 @@ public class Tower : MonoBehaviour, IDamageable, IInteractable
         upgraderef.upgrade_name.text = "";
         upgraderef.current_value.text = 1.1f.ToString();
 
+    }
+
+    public void increasespeed()
+    {
+        throw new NotImplementedException();
+    }
+
+    public void increasedmg()
+    {
+        throw new NotImplementedException();
+    }
+
+    public void increasehp()
+    {
+        throw new NotImplementedException();
+    }
+
+    public void increaserange()
+    {
+        throw new NotImplementedException();
     }
 }

@@ -14,3 +14,4 @@ public interface IInteractable
 {
     void returnupgradables();
 }
+struct upgrades { }

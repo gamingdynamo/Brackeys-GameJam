@@ -6,6 +6,7 @@ TagManager:
   tags:
   - zombie
   - tower
+  - ground
   layers:
   - Default
   - TransparentFX
