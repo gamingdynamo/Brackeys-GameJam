@@ -14,6 +14,7 @@ public class WalkingZombie : MonoBehaviour, IDamageable
     [Header("Sounds")]
     public AudioSource footsteps;
     public AudioSource zombiesfx;
+    public List<AudioClip> zombiesfxclips;
 
     public int hp;
     public int maxhp;
@@ -151,6 +152,17 @@ public class WalkingZombie : MonoBehaviour, IDamageable
             gameObject.transform.rotation = new Quaternion(0, quaternion.y, 0, quaternion.w);
             StartCoroutine(despawndelay());
         }
+    }
+
+    IEnumerator PlayZombieSounds()
+    {
+        AudioClip toplay = zombiesfxclips[Random.Range(0,zombiesfxclips.Count)];
+        zombiesfx.clip = toplay;
+        zombiesfx.Play();
+
+        // delay between sounds
+        yield return new WaitForSeconds(10f);
+        StartCoroutine(PlayZombieSounds());
     }
     IEnumerator despawndelay()
     {

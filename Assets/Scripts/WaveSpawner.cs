@@ -59,8 +59,8 @@ public class WaveSpawner : MonoBehaviour
                 wavecountdown = 0;
 
                 // start wave
-                NewWave();
-                nextroundstarting = false;
+
+                StartCoroutine(NewWave());
             }
             else
             {
@@ -72,7 +72,7 @@ public class WaveSpawner : MonoBehaviour
         if(GameObject.FindGameObjectsWithTag("zombie").Length == 0 && !nextroundstarting) { wavecountdown = 20; nextroundstarting = true; }
     }
 
-    void NewWave()
+    IEnumerator NewWave()
     {
         // set wave in UI
         wave += 1;
@@ -83,6 +83,7 @@ public class WaveSpawner : MonoBehaviour
         // spawn zombies
         while (alreadyspawnedcount < spawncount) 
         {
+            yield return new WaitForSeconds(0.8f);
             Vector3 spawnPosVect = new Vector3(Random.Range(-maxspawndistance, maxspawndistance), 10f, Random.Range(-maxspawndistance, maxspawndistance));
 
             // check if the position is not to close to the tower
@@ -119,6 +120,8 @@ public class WaveSpawner : MonoBehaviour
         spawncount = Mathf.RoundToInt(spawncount * zombie_count_mp);
         zombie_health_mp = zombie_health_mp * zombie_health_mp;
         zombie_damage_mp = zombie_damage_mp * zombie_health_mp;
+
+        nextroundstarting = false;
 
         Debug.Log("Wave: "+ wave.ToString() + " STARTED");
     }
