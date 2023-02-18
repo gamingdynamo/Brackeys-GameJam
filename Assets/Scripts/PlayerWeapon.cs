@@ -29,7 +29,7 @@ public class PlayerWeapon : MonoBehaviour
         {
             Vector3 worldpos = ray.GetPoint(distance - 1.6f);
 
-            Vector3 aimposition = new Vector3(worldpos.x, worldpos.y , worldpos.z); // + 1.4f
+            Vector3 aimposition = new Vector3(worldpos.x, gameObject.transform.position.y + 0.0f , worldpos.z); // + 1.4f
             player_rotation.transform.LookAt(aimposition);
         }
 
