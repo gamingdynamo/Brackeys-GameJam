@@ -19883,6 +19883,12 @@ Transform:
   m_Father: {fileID: 2000301083}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!20 &2136371516 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 1872631004852252544, guid: b6824dc4b48c62949bf64050b03cc9d4,
+    type: 3}
+  m_PrefabInstance: {fileID: 1227288659090708428}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2138636954
 GameObject:
   m_ObjectHideFlags: 0
@@ -21237,6 +21243,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SelectedBuilding: {fileID: 0}
   gamemanager: {fileID: 1760675486}
+  cam: {fileID: 2136371516}
 --- !u!114 &1046446336917183220
 MonoBehaviour:
   m_ObjectHideFlags: 0
