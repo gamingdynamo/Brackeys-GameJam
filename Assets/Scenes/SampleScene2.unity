@@ -21397,7 +21397,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weapon_projectile: {fileID: 4518922881257841064, guid: 885cd64eea7a419419835b4a5552cf21,
     type: 3}
-  player_weapon_barrel: {fileID: 0}
+  player_weapon_barrel: {fileID: 1280964245}
   player_rotation: {fileID: 379257230}
   shots_interval: 0.2
   playerCamera: {fileID: 2136371516}
