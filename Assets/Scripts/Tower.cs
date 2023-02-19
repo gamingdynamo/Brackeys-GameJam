@@ -48,6 +48,8 @@ public class Tower : MonoBehaviour, IDamageable, IInteractable, IUpgradeable
 
     public Image towerhpfill;
 
+    public GameObject RelatedUpgradeUI;
+
     private GameManager gamemanager;
     private PlayerResources playerResources;
 
@@ -77,7 +79,11 @@ public class Tower : MonoBehaviour, IDamageable, IInteractable, IUpgradeable
         }
 
         // update ui values RIP
-
+        hptext.text = "level: " + hplevel.ToString() + "<br>" + "wood: " + hp_upgr_cost_wood.ToString() +"iron: " + hp_upgr_cost_iron.ToString();
+        regen.text = "level: " + hpregenmultiplierlevel.ToString() + "<br>" + "wood: " + regen_upgr_cost_wood.ToString() +" iron: " + regen_upgr_cost_iron.ToString();
+        damage.text = "level: " + towercannondamagelevel.ToString() + "<br>" + "wood: " + damage_upgr_cost_wood.ToString() + " iron: " + damage_upgr_cost_iron.ToString();
+        interval.text = "level: " + towercannonshotintervallevel.ToString() + "<br>" + "wood: " + interval_upgr_cost_wood.ToString() + " iron: " + interval_upgr_cost_iron.ToString();
+        range.text = "level: " + towercannonrangelevel.ToString() + "<br>" + "wood: " + range_upgr_cost_wood.ToString() + " iron: " + range_upgr_cost_iron.ToString();
 
     }
 
@@ -111,45 +117,66 @@ public class Tower : MonoBehaviour, IDamageable, IInteractable, IUpgradeable
 
     public void increasespeed()
     {
-        if(towercannonshotinterval < 0.4f) { }// deny upgrade
-
-        towercannonshotinterval = towercannonshotinterval - 0.05f;
-        interval_upgr_cost_wood += 1;
-        interval_upgr_cost_iron += 1;
-        towercannonshotintervallevel += 1;
-
+        if (playerResources.wood - interval_upgr_cost_wood > 0 && playerResources.iron - interval_upgr_cost_iron > 0)
+        {
+            towercannonshotinterval = towercannonshotinterval - 0.05f;
+            interval_upgr_cost_wood += 1;
+            interval_upgr_cost_iron += 1;
+            towercannonshotintervallevel += 1;
+        }
     }
 
     public void increasedmg()
     {
-
-        towercannondamage = Mathf.RoundToInt(towercannondamage * 1.1f);
-        damage_upgr_cost_wood += 1;
-        damage_upgr_cost_iron += 1;
-        towercannondamagelevel += 1;
+        if(playerResources.wood - damage_upgr_cost_wood > 0 && playerResources.iron - damage_upgr_cost_iron > 0)
+        {
+            towercannondamage = Mathf.RoundToInt(towercannondamage * 1.1f);
+            damage_upgr_cost_wood += 1;
+            damage_upgr_cost_iron += 1;
+            towercannondamagelevel += 1;
+        }
     }
 
     public void increasehp()
     {
-        maxhp = Mathf.RoundToInt(maxhp * 1.1f);
-        hp_upgr_cost_wood += 1;
-        hp_upgr_cost_iron += 1;
-        hplevel += 1;
+        if (playerResources.wood - hp_upgr_cost_wood > 0 && playerResources.iron - hp_upgr_cost_iron > 0)
+        {
+            maxhp = Mathf.RoundToInt(maxhp * 1.1f);
+            hp_upgr_cost_wood += 1;
+            hp_upgr_cost_iron += 1;
+            hplevel += 1;
+        }
     }
 
     public void increaserange()
     {
-        towercannonrange = towercannonrange + 0.5f;
-        range_upgr_cost_wood += 1;
-        range_upgr_cost_iron += 1;
-        towercannonrangelevel += 1;
+        if (playerResources.wood - range_upgr_cost_wood > 0 && playerResources.iron - range_upgr_cost_iron > 0)
+        {
+            towercannonrange = towercannonrange + 0.5f;
+            range_upgr_cost_wood += 1;
+            range_upgr_cost_iron += 1;
+            towercannonrangelevel += 1;
+        }
     }
 
     public void increaserecoveryspeed()
     {
-        hpregenmultiplier = hpregenmultiplier * 1.1f;
-        regen_upgr_cost_wood += 1;
-        regen_upgr_cost_iron += 1;
-        hpregenmultiplierlevel += 1;
+        if (playerResources.wood - regen_upgr_cost_wood > 0 && playerResources.iron - regen_upgr_cost_iron > 0)
+        {
+            hpregenmultiplier = hpregenmultiplier * 1.1f;
+            regen_upgr_cost_wood += 1;
+            regen_upgr_cost_iron += 1;
+            hpregenmultiplierlevel += 1;
+        }
+    }
+
+    public void setuiactive()
+    {
+        RelatedUpgradeUI.SetActive(true);
+    }
+
+    public void deactivateui()
+    {
+        RelatedUpgradeUI.SetActive(false);
     }
 }

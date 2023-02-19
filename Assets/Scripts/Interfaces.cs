@@ -12,6 +12,7 @@ public interface IUpgradeable
 }
 public interface IInteractable
 {
-    void returnupgradables();
+    void setuiactive();
+    void deactivateui();
 }
 struct upgrades { }

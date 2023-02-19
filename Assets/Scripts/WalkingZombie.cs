@@ -37,6 +37,10 @@ public class WalkingZombie : MonoBehaviour, IDamageable
 
     private bool ismoving;
 
+    [Header("Dropables")]
+    public GameObject wood;
+    public GameObject iron;
+
     public bool Ismoving
     {
         get { return ismoving; }
@@ -167,7 +171,21 @@ public class WalkingZombie : MonoBehaviour, IDamageable
     }
     IEnumerator despawndelay()
     {
-        Destroy(gameObject.transform.Find("AttackHeight").gameObject);
+        GameObject attackheight = gameObject.transform.Find("AttackHeight").gameObject;
+
+        int woodchance = Random.Range(0, 5);
+        int ironchance = Random.Range(0, 10);
+
+        if(woodchance > 2) 
+        {
+
+        }
+        if(ironchance > 5)
+        {
+
+        }
+
+        Destroy(attackheight);
         yield return new WaitForSeconds(5f);
         Destroy(gameObject);
     }

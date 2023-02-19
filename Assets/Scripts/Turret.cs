@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using TMPro;
 
-public class Turret : MonoBehaviour
+public class Turret : MonoBehaviour, IInteractable
 {
     public GameObject head;
     public GameObject barrel_end;
@@ -12,7 +12,6 @@ public class Turret : MonoBehaviour
     public GameObject current_target;
 
     private float next_shot_time;
-
 
     private AudioSource audio;
 
@@ -37,9 +36,13 @@ public class Turret : MonoBehaviour
     private int range_upgr_cost_iron = 1;
     public TMP_Text canrange;
 
+    private PlayerResources playerResources;
+
+    public GameObject RelatedUpgradeUI;
     private void Start()
     {
         audio = GetComponent<AudioSource>();
+        playerResources = FindObjectOfType<PlayerResources>();
     }
 
     // Update is called once per frame
@@ -80,33 +83,53 @@ public class Turret : MonoBehaviour
                 audio.Play();
             }
         }
+        // ui update
+        damage.text = "level: " + cannondamagelevel.ToString() + "<br>" + "wood: " + damage_upgr_cost_wood.ToString() + " iron: " + damage_upgr_cost_iron.ToString();
+        interval.text = "level: " + cannonshotintervallevel.ToString() + "<br>" + "wood: " + interval_upgr_cost_wood.ToString() + " iron: " + interval_upgr_cost_iron.ToString();
+        canrange.text = "level: " + cannonrangelevel.ToString() + "<br>" + "wood: " + range_upgr_cost_wood.ToString() + " iron: " + range_upgr_cost_iron.ToString();
+
     }
 
     public void increasespeed()
     {
-        if (cannonshotinterval < 0.4f) { }// deny upgrade
-
-        cannonshotinterval = cannonshotinterval - 0.05f;
-        interval_upgr_cost_wood += 1;
-        interval_upgr_cost_iron += 1;
-        cannonshotintervallevel += 1;
-
+        if (playerResources.wood - interval_upgr_cost_wood > 0 && playerResources.iron - interval_upgr_cost_iron > 0)
+        {
+            cannonshotinterval = cannonshotinterval - 0.05f;
+            interval_upgr_cost_wood += 1;
+            interval_upgr_cost_iron += 1;
+            cannonshotintervallevel += 1;
+        }
     }
 
     public void increasedmg()
     {
-
-        cannondamage = Mathf.RoundToInt(cannondamage * 1.1f);
-        damage_upgr_cost_wood += 1;
-        damage_upgr_cost_iron += 1;
-        cannondamagelevel += 1;
+        if (playerResources.wood - damage_upgr_cost_wood > 0 && playerResources.iron - damage_upgr_cost_iron > 0)
+        {
+            cannondamage = Mathf.RoundToInt(cannondamage * 1.1f);
+            damage_upgr_cost_wood += 1;
+            damage_upgr_cost_iron += 1;
+            cannondamagelevel += 1;
+        }
     }
 
     public void increaserange()
     {
-        cannonrange = cannonrange + 0.5f;
-        range_upgr_cost_wood += 1;
-        range_upgr_cost_iron += 1;
-        cannonrangelevel += 1;
+        if (playerResources.wood - range_upgr_cost_wood > 0 && playerResources.iron - range_upgr_cost_iron > 0)
+        {
+            cannonrange = cannonrange + 0.5f;
+            range_upgr_cost_wood += 1;
+            range_upgr_cost_iron += 1;
+            cannonrangelevel += 1;
+        }
+    }
+
+    public void setuiactive()
+    {
+        RelatedUpgradeUI.SetActive(true);
+    }
+
+    public void deactivateui()
+    {
+        RelatedUpgradeUI.SetActive(false);
     }
 }
