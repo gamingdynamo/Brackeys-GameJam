@@ -21690,6 +21690,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1227288657670711601, guid: b6824dc4b48c62949bf64050b03cc9d4,
+        type: 3}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 9000000, guid: cb71e0b181fbc8c4a9a3e9f45f8448f3, type: 3}
     - target: {fileID: 2273629441802538243, guid: b6824dc4b48c62949bf64050b03cc9d4,
         type: 3}
       propertyPath: m_LocalPosition.x
