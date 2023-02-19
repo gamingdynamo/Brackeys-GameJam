@@ -20,12 +20,17 @@ public class PlayerToWorldInteraction : MonoBehaviour
             {
                 if (hit.collider.GetComponent<IInteractable>() != null)
                 {
-                    if(SelectedBuilding != hit.collider.gameObject)
+                    if(SelectedBuilding != hit.collider.gameObject && SelectedBuilding != null)
                     {
                         SelectedBuilding.GetComponent<IInteractable>().deactivateui();
                     }
                     hit.collider.GetComponent<IInteractable>().setuiactive();
                     SelectedBuilding = hit.collider.gameObject;
+                }
+                else
+                {
+                    SelectedBuilding.GetComponent<IInteractable>().deactivateui();
+                    SelectedBuilding= null;
                 }
                 print(hit.collider.name);
             }

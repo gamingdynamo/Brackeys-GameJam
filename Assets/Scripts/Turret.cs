@@ -92,8 +92,11 @@ public class Turret : MonoBehaviour, IInteractable
 
     public void increasespeed()
     {
-        if (playerResources.wood - interval_upgr_cost_wood > 0 && playerResources.iron - interval_upgr_cost_iron > 0)
+        if (playerResources.wood - interval_upgr_cost_wood >= 0 && playerResources.iron - interval_upgr_cost_iron >= 0)
         {
+            playerResources.wood -= interval_upgr_cost_wood;
+            playerResources.iron -= interval_upgr_cost_iron;
+
             cannonshotinterval = cannonshotinterval - 0.05f;
             interval_upgr_cost_wood += 1;
             interval_upgr_cost_iron += 1;
@@ -103,8 +106,11 @@ public class Turret : MonoBehaviour, IInteractable
 
     public void increasedmg()
     {
-        if (playerResources.wood - damage_upgr_cost_wood > 0 && playerResources.iron - damage_upgr_cost_iron > 0)
+        if (playerResources.wood - damage_upgr_cost_wood >= 0 && playerResources.iron - damage_upgr_cost_iron >= 0)
         {
+            playerResources.wood -= damage_upgr_cost_wood;
+            playerResources.iron -= damage_upgr_cost_iron;
+
             cannondamage = Mathf.RoundToInt(cannondamage * 1.1f);
             damage_upgr_cost_wood += 1;
             damage_upgr_cost_iron += 1;
@@ -114,8 +120,11 @@ public class Turret : MonoBehaviour, IInteractable
 
     public void increaserange()
     {
-        if (playerResources.wood - range_upgr_cost_wood > 0 && playerResources.iron - range_upgr_cost_iron > 0)
+        if (playerResources.wood - range_upgr_cost_wood >= 0 && playerResources.iron - range_upgr_cost_iron >= 0)
         {
+            playerResources.wood -= range_upgr_cost_wood;
+            playerResources.iron -= range_upgr_cost_iron;
+
             cannonrange = cannonrange + 0.5f;
             range_upgr_cost_wood += 1;
             range_upgr_cost_iron += 1;

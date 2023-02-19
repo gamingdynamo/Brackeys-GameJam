@@ -117,8 +117,11 @@ public class Tower : MonoBehaviour, IDamageable, IInteractable, IUpgradeable
 
     public void increasespeed()
     {
-        if (playerResources.wood - interval_upgr_cost_wood > 0 && playerResources.iron - interval_upgr_cost_iron > 0)
+        if (playerResources.wood - interval_upgr_cost_wood >= 0 && playerResources.iron - interval_upgr_cost_iron >= 0)
         {
+            playerResources.wood -= interval_upgr_cost_wood;
+            playerResources.iron -= interval_upgr_cost_iron;
+
             towercannonshotinterval = towercannonshotinterval - 0.05f;
             interval_upgr_cost_wood += 1;
             interval_upgr_cost_iron += 1;
@@ -128,8 +131,11 @@ public class Tower : MonoBehaviour, IDamageable, IInteractable, IUpgradeable
 
     public void increasedmg()
     {
-        if(playerResources.wood - damage_upgr_cost_wood > 0 && playerResources.iron - damage_upgr_cost_iron > 0)
+        if(playerResources.wood - damage_upgr_cost_wood >= 0 && playerResources.iron - damage_upgr_cost_iron >= 0)
         {
+            playerResources.wood -= damage_upgr_cost_wood;
+            playerResources.iron -= damage_upgr_cost_iron;
+
             towercannondamage = Mathf.RoundToInt(towercannondamage * 1.1f);
             damage_upgr_cost_wood += 1;
             damage_upgr_cost_iron += 1;
@@ -139,8 +145,11 @@ public class Tower : MonoBehaviour, IDamageable, IInteractable, IUpgradeable
 
     public void increasehp()
     {
-        if (playerResources.wood - hp_upgr_cost_wood > 0 && playerResources.iron - hp_upgr_cost_iron > 0)
+        if (playerResources.wood - hp_upgr_cost_wood >= 0 && playerResources.iron - hp_upgr_cost_iron >= 0)
         {
+            playerResources.wood -= hp_upgr_cost_wood;
+            playerResources.iron -= hp_upgr_cost_iron;
+
             maxhp = Mathf.RoundToInt(maxhp * 1.1f);
             hp_upgr_cost_wood += 1;
             hp_upgr_cost_iron += 1;
@@ -150,8 +159,11 @@ public class Tower : MonoBehaviour, IDamageable, IInteractable, IUpgradeable
 
     public void increaserange()
     {
-        if (playerResources.wood - range_upgr_cost_wood > 0 && playerResources.iron - range_upgr_cost_iron > 0)
+        if (playerResources.wood - range_upgr_cost_wood >= 0 && playerResources.iron - range_upgr_cost_iron >= 0)
         {
+            playerResources.wood -= range_upgr_cost_wood;
+            playerResources.iron -= range_upgr_cost_iron;
+
             towercannonrange = towercannonrange + 0.5f;
             range_upgr_cost_wood += 1;
             range_upgr_cost_iron += 1;
@@ -161,8 +173,11 @@ public class Tower : MonoBehaviour, IDamageable, IInteractable, IUpgradeable
 
     public void increaserecoveryspeed()
     {
-        if (playerResources.wood - regen_upgr_cost_wood > 0 && playerResources.iron - regen_upgr_cost_iron > 0)
+        if (playerResources.wood - regen_upgr_cost_wood >= 0 && playerResources.iron - regen_upgr_cost_iron >= 0)
         {
+            playerResources.wood -= regen_upgr_cost_wood;
+            playerResources.iron -= regen_upgr_cost_iron;
+
             hpregenmultiplier = hpregenmultiplier * 1.1f;
             regen_upgr_cost_wood += 1;
             regen_upgr_cost_iron += 1;
