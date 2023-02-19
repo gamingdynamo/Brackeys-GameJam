@@ -14,6 +14,8 @@ public class PlayerWeapon : MonoBehaviour
     // weapon delay
     private float next_shot_time;
     public float shots_interval;
+
+    [SerializeField] private Camera playerCamera;
     void Start()
     {
         // ADD PLAYER POWERUPS LIKE A GRENADE HE CAN THROW TO DAMAGE GROUPS
@@ -24,7 +26,7 @@ public class PlayerWeapon : MonoBehaviour
     {
         // rotate player to look at the curser in world space
         float distance;
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Ray ray = playerCamera.ScreenPointToRay(Input.mousePosition);
         if(plane.Raycast(ray, out distance))
         {
             Vector3 worldpos = ray.GetPoint(distance - 1.6f);
