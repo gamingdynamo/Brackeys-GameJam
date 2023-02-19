@@ -1155,6 +1155,15 @@ MonoBehaviour:
   current_target: {fileID: 0}
   shot_interval: 1.2
   range: 5
+  cannondamage: 0
+  cannondamagelevel: 0
+  damage: {fileID: 0}
+  cannonshotinterval: 0
+  cannonshotintervallevel: 0
+  interval: {fileID: 0}
+  cannonrange: 0
+  cannonrangelevel: 0
+  canrange: {fileID: 0}
 --- !u!65 &100397625
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1571,6 +1580,15 @@ MonoBehaviour:
   current_target: {fileID: 0}
   shot_interval: 1.2
   range: 6
+  cannondamage: 0
+  cannondamagelevel: 0
+  damage: {fileID: 0}
+  cannonshotinterval: 0
+  cannonshotintervallevel: 0
+  interval: {fileID: 0}
+  cannonrange: 0
+  cannonrangelevel: 0
+  canrange: {fileID: 0}
 --- !u!23 &118672773
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3225,6 +3243,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 280409718}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &280926155 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3443138871577271313, guid: b6824dc4b48c62949bf64050b03cc9d4,
+    type: 3}
+  m_PrefabInstance: {fileID: 1227288659090708428}
+  m_PrefabAsset: {fileID: 0}
+--- !u!20 &280926158 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 1872631004852252544, guid: b6824dc4b48c62949bf64050b03cc9d4,
+    type: 3}
+  m_PrefabInstance: {fileID: 1227288659090708428}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &281352173
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3369,11 +3399,9 @@ MonoBehaviour:
   barrel_end: {fileID: 841220353}
   projectile: {fileID: 4518922881257841064, guid: 885cd64eea7a419419835b4a5552cf21,
     type: 3}
-  zombies_in_range: []
   current_target: {fileID: 0}
-  shot_interval: 0.6
-  range: 8
   attackAngle: 50
+  tower: {fileID: 0}
 --- !u!1 &300377299 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6689233948683524047, guid: fedb9dd79ac5b3041be62caac817b15f,
@@ -3842,6 +3870,15 @@ MonoBehaviour:
   current_target: {fileID: 0}
   shot_interval: 1.2
   range: 6
+  cannondamage: 0
+  cannondamagelevel: 0
+  damage: {fileID: 0}
+  cannonshotinterval: 0
+  cannonshotintervallevel: 0
+  interval: {fileID: 0}
+  cannonrange: 0
+  cannonrangelevel: 0
+  canrange: {fileID: 0}
 --- !u!23 &334052168
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4499,6 +4536,15 @@ MonoBehaviour:
   current_target: {fileID: 0}
   shot_interval: 1.2
   range: 5
+  cannondamage: 0
+  cannondamagelevel: 0
+  damage: {fileID: 0}
+  cannonshotinterval: 0
+  cannonshotintervallevel: 0
+  interval: {fileID: 0}
+  cannonrange: 0
+  cannonrangelevel: 0
+  canrange: {fileID: 0}
 --- !u!65 &413243064
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5404,6 +5450,15 @@ MonoBehaviour:
   current_target: {fileID: 0}
   shot_interval: 1.2
   range: 5
+  cannondamage: 0
+  cannondamagelevel: 0
+  damage: {fileID: 0}
+  cannonshotinterval: 0
+  cannonshotintervallevel: 0
+  interval: {fileID: 0}
+  cannonrange: 0
+  cannonrangelevel: 0
+  canrange: {fileID: 0}
 --- !u!135 &528388419
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -8043,6 +8098,15 @@ MonoBehaviour:
   current_target: {fileID: 0}
   shot_interval: 1.2
   range: 6
+  cannondamage: 0
+  cannondamagelevel: 0
+  damage: {fileID: 0}
+  cannonshotinterval: 0
+  cannonshotintervallevel: 0
+  interval: {fileID: 0}
+  cannonrange: 0
+  cannonrangelevel: 0
+  canrange: {fileID: 0}
 --- !u!23 &826117230
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8712,11 +8776,9 @@ MonoBehaviour:
   barrel_end: {fileID: 337178215}
   projectile: {fileID: 4518922881257841064, guid: 885cd64eea7a419419835b4a5552cf21,
     type: 3}
-  zombies_in_range: []
   current_target: {fileID: 0}
-  shot_interval: 0.6
-  range: 8
   attackAngle: 50
+  tower: {fileID: 0}
 --- !u!1001 &848772500
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9566,6 +9628,15 @@ MonoBehaviour:
   current_target: {fileID: 0}
   shot_interval: 1.2
   range: 5
+  cannondamage: 0
+  cannondamagelevel: 0
+  damage: {fileID: 0}
+  cannonshotinterval: 0
+  cannonshotintervallevel: 0
+  interval: {fileID: 0}
+  cannonrange: 0
+  cannonrangelevel: 0
+  canrange: {fileID: 0}
 --- !u!65 &960600858
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10878,11 +10949,9 @@ MonoBehaviour:
   barrel_end: {fileID: 1765405235}
   projectile: {fileID: 4518922881257841064, guid: 885cd64eea7a419419835b4a5552cf21,
     type: 3}
-  zombies_in_range: []
   current_target: {fileID: 0}
-  shot_interval: 0.6
-  range: 8
   attackAngle: 50
+  tower: {fileID: 0}
 --- !u!1 &1141162063
 GameObject:
   m_ObjectHideFlags: 0
@@ -10995,7 +11064,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1141162063}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 10}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13618,11 +13687,9 @@ MonoBehaviour:
   barrel_end: {fileID: 1685810906}
   projectile: {fileID: 4518922881257841064, guid: 885cd64eea7a419419835b4a5552cf21,
     type: 3}
-  zombies_in_range: []
   current_target: {fileID: 0}
-  shot_interval: 0.6
-  range: 8
   attackAngle: 50
+  tower: {fileID: 0}
 --- !u!1001 &1447949763
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16214,12 +16281,12 @@ PrefabInstance:
     - target: {fileID: 6689233947902458697, guid: fedb9dd79ac5b3041be62caac817b15f,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6689233948044402534, guid: fedb9dd79ac5b3041be62caac817b15f,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6689233948116362566, guid: fedb9dd79ac5b3041be62caac817b15f,
         type: 3}
@@ -16361,6 +16428,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6689233948611505208, guid: fedb9dd79ac5b3041be62caac817b15f,
+        type: 3}
+      propertyPath: am
+      value: 
+      objectReference: {fileID: 2000301082}
     - target: {fileID: 6689233948651008409, guid: fedb9dd79ac5b3041be62caac817b15f,
         type: 3}
       propertyPath: m_IsActive
@@ -18551,6 +18623,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2000301083}
   - component: {fileID: 2000301082}
+  - component: {fileID: 2000301084}
   m_Layer: 0
   m_Name: MainMenuHolder
   m_TagString: Untagged
@@ -18585,15 +18658,29 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2000301081}
-  m_LocalRotation: {x: -0.011737224, y: 0.9844727, z: -0.15944974, w: -0.07246783}
-  m_LocalPosition: {x: -1.86, y: 0.21, z: 4.63}
+  m_LocalRotation: {x: 0.1353406, y: -0.13315888, z: 0.018358896, w: 0.9816387}
+  m_LocalPosition: {x: -4.94, y: 0.2, z: 7.85}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2133475041}
   m_Father: {fileID: 0}
   m_RootOrder: 19
-  m_LocalEulerAnglesHint: {x: 18.4, y: 188.42, z: 0}
+  m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
+--- !u!114 &2000301084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2000301081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 526a5c848584d984a90bd90b285a04fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainMenuCamera: {fileID: 2000301081}
+  player: {fileID: 280926155}
 --- !u!1001 &2008686952
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19753,6 +19840,7 @@ MonoBehaviour:
   player_weapon_barrel: {fileID: 1676124980}
   player_rotation: {fileID: 379257230}
   shots_interval: 0.2
+  playerCamera: {fileID: 280926158}
 --- !u!114 &1046446336917183218
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19780,7 +19868,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wood: 0
-  metal: 0
+  iron: 0
 --- !u!114 &1046446336917183221
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19912,6 +20000,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PlayerModel
+      objectReference: {fileID: 0}
+    - target: {fileID: 2273629441802703175, guid: b6824dc4b48c62949bf64050b03cc9d4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2273629441802703175, guid: b6824dc4b48c62949bf64050b03cc9d4,
         type: 3}
@@ -20056,6 +20149,15 @@ MonoBehaviour:
   current_target: {fileID: 0}
   shot_interval: 1.2
   range: 6
+  cannondamage: 0
+  cannondamagelevel: 0
+  damage: {fileID: 0}
+  cannonshotinterval: 0
+  cannonshotintervallevel: 0
+  interval: {fileID: 0}
+  cannonrange: 0
+  cannonrangelevel: 0
+  canrange: {fileID: 0}
 --- !u!208 &3469287837220395804
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -20217,9 +20319,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 1000
   maxhp: 1000
+  hplevel: 0
+  hptext: {fileID: 0}
   hpregenmultiplier: 5
+  hpregenmultiplierlevel: 0
+  regen: {fileID: 0}
+  towercannondamage: 0
+  towercannondamagelevel: 0
+  damage: {fileID: 0}
+  towercannonshotinterval: 0
+  towercannonshotintervallevel: 0
+  interval: {fileID: 0}
+  towercannonrange: 0
+  towercannonrangelevel: 0
+  range: {fileID: 0}
   towerhpfill: {fileID: 1770678203}
-  gamemanager: {fileID: 1760675486}
 --- !u!136 &7552710689421918365
 CapsuleCollider:
   m_ObjectHideFlags: 0
