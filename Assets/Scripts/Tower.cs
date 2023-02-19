@@ -4,22 +4,57 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
-using UnityEngine.XR;
 
 public class Tower : MonoBehaviour, IDamageable, IInteractable, IUpgradeable
 {
+    [Header("Health")]
     public float hp;
     public int maxhp;
+    public int hplevel;
+    private int hp_upgr_cost_wood = 2;
+    private int hp_upgr_cost_iron = 1;
+    public TMP_Text hptext;
 
+    [Header("Regen")]
     public float hpregenmultiplier;
+    public int hpregenmultiplierlevel;
+    private int regen_upgr_cost_wood = 2;
+    private int regen_upgr_cost_iron = 1;
+    public TMP_Text regen;
+
+
     private float time_since_damage;
 
+    [Header("Damage")]
+    public int towercannondamage;
+    public int towercannondamagelevel;
+    private int damage_upgr_cost_wood = 2;
+    private int damage_upgr_cost_iron = 1;
+    public TMP_Text damage;
+
+    [Header("Interval")]
+    public float towercannonshotinterval;
+    public float towercannonshotintervallevel;
+    private int interval_upgr_cost_wood = 2;
+    private int interval_upgr_cost_iron = 1;
+    public TMP_Text interval;
+
+    [Header("Range")]
+    public float towercannonrange;
+    public float towercannonrangelevel;
+    private int range_upgr_cost_wood = 2;
+    private int range_upgr_cost_iron = 1;
+    public TMP_Text range;
+
     public Image towerhpfill;
-    public GameManager gamemanager;
+
+    private GameManager gamemanager;
+    private PlayerResources playerResources;
 
     void Start()
     {
-        
+        playerResources = FindObjectOfType<PlayerResources>();
+        gamemanager = FindObjectOfType<GameManager>();
     }
 
     // Update is called once per frame
@@ -40,6 +75,10 @@ public class Tower : MonoBehaviour, IDamageable, IInteractable, IUpgradeable
         {
             time_since_damage -= Time.deltaTime;
         }
+
+        // update ui values RIP
+
+
     }
 
     void IDamageable.damage(int damage, bool friendly)
@@ -72,21 +111,45 @@ public class Tower : MonoBehaviour, IDamageable, IInteractable, IUpgradeable
 
     public void increasespeed()
     {
-        throw new NotImplementedException();
+        if(towercannonshotinterval < 0.4f) { }// deny upgrade
+
+        towercannonshotinterval = towercannonshotinterval - 0.05f;
+        interval_upgr_cost_wood += 1;
+        interval_upgr_cost_iron += 1;
+        towercannonshotintervallevel += 1;
+
     }
 
     public void increasedmg()
     {
-        throw new NotImplementedException();
+
+        towercannondamage = Mathf.RoundToInt(towercannondamage * 1.1f);
+        damage_upgr_cost_wood += 1;
+        damage_upgr_cost_iron += 1;
+        towercannondamagelevel += 1;
     }
 
     public void increasehp()
     {
-        throw new NotImplementedException();
+        maxhp = Mathf.RoundToInt(maxhp * 1.1f);
+        hp_upgr_cost_wood += 1;
+        hp_upgr_cost_iron += 1;
+        hplevel += 1;
     }
 
     public void increaserange()
     {
-        throw new NotImplementedException();
+        towercannonrange = towercannonrange + 0.5f;
+        range_upgr_cost_wood += 1;
+        range_upgr_cost_iron += 1;
+        towercannonrangelevel += 1;
+    }
+
+    public void increaserecoveryspeed()
+    {
+        hpregenmultiplier = hpregenmultiplier * 1.1f;
+        regen_upgr_cost_wood += 1;
+        regen_upgr_cost_iron += 1;
+        hpregenmultiplierlevel += 1;
     }
 }

@@ -5,5 +5,5 @@ using UnityEngine;
 public class PlayerResources : MonoBehaviour
 { 
     public int wood;  
-    public int metal; 
+    public int iron; 
 } 

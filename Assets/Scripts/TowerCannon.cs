@@ -10,32 +10,32 @@ public class TowerCannon : MonoBehaviour
 
     public GameObject projectile;
 
-    public List<GameObject> zombies_in_range;
     public GameObject current_target;
 
-    public float shot_interval;
     private float next_shot_time;
 
-    public float range;
     public float attackAngle;
 
+    public Tower tower;
+
+    private void Start()
+    {
+        tower = GameObject.FindFirstObjectByType<Tower>();
+    }
     void Update()
     {
         // check if previous target is not out of range (if not we can search for a new enemy the same tick)
         if (current_target != null)
         {
             float dist = Vector3.Distance(gameObject.transform.position, current_target.transform.position);
-            if (dist < range)
+
+            Vector3 targetsRange = current_target.transform.position - head.transform.position;
+
+            float angle = Vector3.Angle(targetsRange, head.transform.forward);
+
+            if (dist > tower.towercannonrange || angle > attackAngle)
             {
-                Vector3 targetsRange = current_target.transform.position - head.transform.position;
-
-                float angle = Vector3.Angle(targetsRange, head.transform.forward);
-
-                // if the angle is larger than attack angle current target is out of range
-                if (angle > attackAngle)
-                {
                     current_target = null;
-                }
             }
         }
 
@@ -49,7 +49,7 @@ public class TowerCannon : MonoBehaviour
                     GameObject zombie_target_point = zomb.transform.Find("AttackHeight").gameObject;
 
                     float dist = Vector3.Distance(gameObject.transform.position, zombie_target_point.transform.position);
-                    if (dist < range)
+                    if (dist < tower.towercannonrange)
                     {
                         Vector3 targetsRange = zombie_target_point.transform.position - head.transform.position;
 
@@ -77,8 +77,9 @@ public class TowerCannon : MonoBehaviour
             {
                 GameObject project = Instantiate(projectile, barrel_end.transform.position, head.transform.rotation);
                 project.GetComponent<Projectile>().friendly_projectile = true;
+                project.GetComponent<Projectile>().damage = tower.towercannondamage;
                 project.GetComponent<Rigidbody>().AddForce(head.transform.forward * 1000f);
-                next_shot_time = Time.time + shot_interval;
+                next_shot_time = Time.time + tower.towercannonshotinterval;
             }
         }
     }
