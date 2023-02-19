@@ -11,10 +11,11 @@ public class PlayerMovement : MonoBehaviour
     CharacterController characterController;
     Vector3 moveDirection = Vector3.zero;
 
+    private Animator animator;
     void Start()
     {
         characterController = GetComponent<CharacterController>();
-
+        animator= GetComponent<Animator>();
         //Cursor.lockState = CursorLockMode.Locked;
         //Cursor.visible = false;
     }
@@ -33,6 +34,9 @@ public class PlayerMovement : MonoBehaviour
         moveDirection = (forward * curSpeedX) + (right * curSpeedY);
 
         moveDirection.y -= gravity ;
+
+        if (moveDirection.x > 0.1f) { animator.SetBool(1, true); } else { animator.SetBool(1, false); }
+
         // Gravity
         if (!characterController.isGrounded)
         {

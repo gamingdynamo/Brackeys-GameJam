@@ -30,9 +30,17 @@ public class WaveSpawner : MonoBehaviour
     public TMP_Text countdownfield;
     public TMP_Text wavefield;
 
+    // Sound
+    [Header("Sound")]
+    public AudioSource backgroundmusic;
+    public AudioSource RoundStart;
+
+    public AudioClip day;
+    public AudioClip night;
+
     // wave settings
     [Header("Current Wave Settings")]
-    [SerializeField] private int spawncount;
+    [SerializeField] public int spawncount;
     [SerializeField] private float zombie_damage_mp;
     [SerializeField] private float zombie_health_mp;
     [SerializeField] private float zombie_count_mp;
@@ -69,7 +77,7 @@ public class WaveSpawner : MonoBehaviour
         }
         
         // if all zombies are dead set new countdown so the next round starts
-        if(GameObject.FindGameObjectsWithTag("zombie").Length == 0 && !nextroundstarting) { wavecountdown = 20; nextroundstarting = true; }
+        if(GameObject.FindGameObjectsWithTag("zombie").Length == 0 && !nextroundstarting) { wavecountdown = 20; nextroundstarting = true;  backgroundmusic.clip = day; backgroundmusic.Play(); }
     }
 
     IEnumerator NewWave()
@@ -77,6 +85,12 @@ public class WaveSpawner : MonoBehaviour
         // set wave in UI
         wave += 1;
         wavefield.text = "Wave: " + wave.ToString();
+        
+        RoundStart.Play();
+        backgroundmusic.Stop();
+
+        backgroundmusic.clip = night;
+        backgroundmusic.PlayDelayed(2f);
 
         int alreadyspawnedcount = 0;
 
@@ -122,7 +136,7 @@ public class WaveSpawner : MonoBehaviour
         zombie_damage_mp = zombie_damage_mp * zombie_health_mp;
 
         nextroundstarting = false;
-
+        
         Debug.Log("Wave: "+ wave.ToString() + " STARTED");
     }
 

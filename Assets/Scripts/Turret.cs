@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class Turret : MonoBehaviour
 {
@@ -13,6 +14,12 @@ public class Turret : MonoBehaviour
     private float next_shot_time;
 
     public float range;
+
+    private AudioSource audio;
+    private void Start()
+    {
+        audio = GetComponent<AudioSource>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -48,6 +55,7 @@ public class Turret : MonoBehaviour
                 project.GetComponent<Projectile>().friendly_projectile = true;
                 project.GetComponent<Rigidbody>().AddForce(head.transform.forward * 1000f);
                 next_shot_time = Time.time + shot_interval;
+                audio.Play();
             }
         }
     }
