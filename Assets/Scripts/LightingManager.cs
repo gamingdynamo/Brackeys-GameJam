@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-[ExecuteAlways]
 public class LightingManager : MonoBehaviour
 {
     [SerializeField] public Light directionalLight;

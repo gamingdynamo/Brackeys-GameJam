@@ -35,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
 
         moveDirection.y -= gravity ;
 
-        if (moveDirection.x > 0.1f) { animator.SetBool(1, true); } else { animator.SetBool(1, false); }
+        if (moveDirection.x != 0 || moveDirection.z != 0) { animator.SetBool("IsWalking", true);  } else { animator.SetBool("IsWalking", false); }
 
         // Gravity
         if (!characterController.isGrounded)
