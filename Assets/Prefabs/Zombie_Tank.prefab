@@ -461,6 +461,8 @@ MonoBehaviour:
   damage_range: 2
   damage_ray_origin: {fileID: 282016732012401342}
   m_animator: {fileID: 7784176679131446820}
+  wood: {fileID: 869489795455099726, guid: dd8821a8330252c47a6b72cf1c483e85, type: 3}
+  iron: {fileID: 2538102911386683759, guid: 4780d60a64b462445a0322a9463a24c0, type: 3}
 --- !u!195 &7784176679131446817
 NavMeshAgent:
   m_ObjectHideFlags: 0

@@ -173,16 +173,16 @@ public class WalkingZombie : MonoBehaviour, IDamageable
     {
         GameObject attackheight = gameObject.transform.Find("AttackHeight").gameObject;
 
-        int woodchance = Random.Range(0, 5);
-        int ironchance = Random.Range(0, 10);
+        int woodchance = Random.Range(0, 6);
+        int ironchance = Random.Range(0, 9);
 
-        if(woodchance > 2) 
+        if(woodchance >= 3) 
         {
-
+            Instantiate(wood,attackheight.transform.position, new Quaternion());
         }
-        if(ironchance > 5)
+        if(ironchance >= 6)
         {
-
+            Instantiate(iron, attackheight.transform.position, new Quaternion());
         }
 
         Destroy(attackheight);
