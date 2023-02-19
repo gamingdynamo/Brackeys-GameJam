@@ -7,6 +7,8 @@ TagManager:
   - zombie
   - tower
   - ground
+  - wood
+  - iron
   layers:
   - Default
   - TransparentFX
