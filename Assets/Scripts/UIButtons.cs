@@ -16,9 +16,9 @@ public class UIButtons : MonoBehaviour
     {
 
     }
-    public void restartlevel()
+    public void Play()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 
     public void exitgame()
