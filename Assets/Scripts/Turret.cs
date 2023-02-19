@@ -11,10 +11,8 @@ public class Turret : MonoBehaviour
 
     public GameObject current_target;
 
-    public float shot_interval;
     private float next_shot_time;
 
-    public float range;
 
     private AudioSource audio;
 
