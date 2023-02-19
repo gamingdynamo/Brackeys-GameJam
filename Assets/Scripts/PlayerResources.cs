@@ -4,8 +4,8 @@ using UnityEngine;
 using TMPro;
 public class PlayerResources : MonoBehaviour
 { 
-    public int wood;  
-    public int iron;
+    public float wood;  
+    public float iron;
 
     public TMP_Text woodcount;
     public TMP_Text ironcount;
@@ -20,12 +20,12 @@ public class PlayerResources : MonoBehaviour
     {
         if(collision.gameObject.tag == "wood")
         {
-            wood += 1;
+            wood += 2.5f;
             Destroy(collision.gameObject);
         }
         if (collision.gameObject.tag == "iron")
         {
-            iron += 1;
+            iron += 2.5f;
             Destroy(collision.gameObject);
         }
     }
