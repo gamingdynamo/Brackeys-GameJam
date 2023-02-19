@@ -6,7 +6,7 @@ using UnityEngine;
 [ExecuteAlways]
 public class LightingManager : MonoBehaviour
 {
-    [SerializeField] private Light directionalLight;
+    [SerializeField] public Light directionalLight;
     [SerializeField] private LightingPreset preset;
     [SerializeField, Range(0,24)] private float timeOfDay;
 
