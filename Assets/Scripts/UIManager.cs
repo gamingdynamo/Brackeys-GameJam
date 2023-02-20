@@ -9,6 +9,13 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject upgradeMenu;
     [SerializeField] private GameObject waveCounter;
     [SerializeField] private GameObject countDown;
+
+    private void Start()
+    {
+        // Move health bars to top left corner
+        playerHealth.transform.position = new Vector3(200,386,0);
+        towerHealth.transform.position = new Vector3(200,426,0);
+    }
     
     public void EnableUi(string name)
     {
