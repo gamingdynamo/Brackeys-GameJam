@@ -20,7 +20,7 @@ public class TowerCannon : MonoBehaviour
 
     private void Start()
     {
-        tower = GameObject.FindFirstObjectByType<Tower>();
+        tower = GameObject.FindObjectsOfType<Tower>().First();
     }
     void Update()
     {
