@@ -703,7 +703,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: -153.17, z: 0}
 --- !u!95 &8449570831887455465
 Animator:
-  serializedVersion: 5
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -720,7 +720,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!136 &8499046386933745059
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -732,9 +732,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.2
-  m_Height: 1
+  m_Height: 1.6573049
   m_Direction: 1
-  m_Center: {x: 0, y: 0.47, z: 0}
+  m_Center: {x: 0, y: 0.79865247, z: -0}
 --- !u!114 &8449570831887455471
 MonoBehaviour:
   m_ObjectHideFlags: 0
